@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-
 const jobs = {
  jobSummaryList: [
    {
@@ -34,8 +33,34 @@ const jobs = {
      // },
    },
    {
-     jobId: "g8ds09goqw4tj0v90slt32ggsagdklajf;ldsa",
-     jobName: "yeah job",
+     jobId: "jjdsfajiofasfenwoaihbfdiojsfdkaljf;lsdjiofa",
+     jobName: "jobNameだよ",
+     createdAt: "2011/02/27 09:32:22",
+     status: "FAILED",
+     statusReason: "failed",
+     startedAt: "09328502590",
+     stoppedAt: "0490952935092",
+     // container: {
+     //   exitCode: "1",
+     //   reason: "yeah"
+     // },
+   },
+   {
+     jobId: "78u3ie897yuj3u9r8wefuybhjkoi34uhitegrug98",
+     jobName: "バッチその１",
+     createdAt: "2011/02/27 09:32:22",
+     status: "SUCCEEDED",
+     statusReason: "successful done",
+     startedAt: "09328502590",
+     stoppedAt: "0490952935092",
+     // container: {
+     //   exitCode: "1",
+     //   reason: "yeah"
+     // },
+   },
+   {
+     jobId: "jduisojnbvf68t79yhoibhvt768toil",
+     jobName: "ばっちその２",
      createdAt: "2011/02/27 09:32:22",
      status: "SUCCEEDED",
      statusReason: "successful done",

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AWS from 'aws-sdk';
+import SimpleTable from './components/SimpleTable';
 
 AWS.config.update({
   "accessKeyId": process.env.REACT_APP_AWS_ACCESS_KEY_ID,
@@ -18,7 +19,12 @@ class App extends Component {
   filterList = (e) => {
     const updateList = this.props.jobs.jobSummaryList.filter((item) => {
       return this.matchStringValue(item.jobId, e.target.value)
-      || this.matchStringValue(item.jobName, e.target.value);
+          || this.matchStringValue(item.jobName, e.target.value)
+          || this.matchStringValue(item.createdAt, e.target.value)
+          || this.matchStringValue(item.status, e.target.value)
+          || this.matchStringValue(item.statusReason, e.target.value)
+          || this.matchStringValue(item.startedAt, e.target.value)
+          || this.matchStringValue(item.stoppedAt, e.target.value);
     })
     this.setState({jobs: updateList});
   }
@@ -32,12 +38,6 @@ class App extends Component {
   }
 
   render() {
-    let list = this.state.jobs.map((job) => (
-      <li key={job.jobId}>
-        {job.jobId} {job.jobName} {job.createdAt} {job.status} {job.statusReason} {job.startedAt} {job.stoppedAt}
-      </li>
-    ));
-
     return (
       <div>
         <form action="">
@@ -48,9 +48,7 @@ class App extends Component {
             onChange={this.filterList}
           />
         </form>
-        <ul>
-          {list}
-        </ul>
+        <SimpleTable data={this.state.jobs}/>
       </div>
     );
   }
